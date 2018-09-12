@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+    <style>
+      
+      body {
+        max-width: 960px;
+        margin: 16.666vh auto;
+        padding: 0 1em;
+        font-family: "Nimbus Roman No9 L";
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      * {
+        font-weight: normal;
+      }
+      
+      section {
+        padding: 16.666vh 0;
+      }
+      
+      p {
+        max-width: 45em;
+      }
+      
+      ul {
+        margin: -1em 0 0;
+        padding: 0;
+        list-style-position: inside;
+        list-style-type: circle;
+      }
+      
+      ol {
+        padding: 0;
+      }
+      ol li {
+        padding: 0.666em 0;
+        list-style-position: inside;
+      }
+      ol li+li {
+        border-top: 0.7px solid;
+      }
+      ol a {
+        text-decoration: none;
+      }
+      
+      .example {
+        position: relative;
+        overflow: hidden;
+        margin: 2em 0;
+        padding-top: 66.666%;
+        border: 0.7px solid rgba(0,0,0,0.3);
+        border-radius: 7px;
+        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+        background: #eee;
+        background-image: linear-gradient(#f2f2f2 0, #e5e5e5 30px);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      }
+      .example-inner {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-top: 0.7px solid rgba(0,0,0,0.4);
+        overflow: scroll;
+        background: white;
+      }
+      .example table td {
+        font-family: "nta", sans-serif;
+        font-size: 13px;
+        white-space: nowrap;
+        padding: 1em;
+        border-collapse: collapse;
+      }
+      .example table tr+tr td {
+        border-top: 1px solid #ccc;
+      }
+      
+      pre {
+        padding: 1em 1em 0;
+        background: #444;
+        color: white;
+      }
+    </style>
+    
+  </head>
+  <body>
+    
+    
+    <h1>Proposal for new UI patterns in the GDS&nbsp;Design&nbsp;System</h1>
+    
+    
+    <section>
+      <p><em>By Mark&nbsp;Hurrell&thinsp;&mdash;&thinsp;based on prototyping and discussions between Mia&nbsp;Allers, Conor&nbsp;Delahunty, Stephen&nbsp;McCarthy, Chris&nbsp;Thomas, Michael&nbsp;Thomas, Sonia&nbsp;Turcotte &amp; Jeremy&nbsp;Yun</em></p>
+      <ol>
+        <li><a href="#floating-boxes">Floating boxes</a></li>
+        <li><a href="#modal-dialogue">Modal dialogues</a></li>
+        <li><a href="#modal-tooltip">Modal tooltips</a></li>
+        <li><a href="#shades">Shades</a></li>
+      </ol>
+    </section>
+    
+    
+    <section id="floating-boxes">
+      <h2>Floating boxes</h2>
+      <p><em>Floating boxes are areas of the interface that remain fixed to the viewport while other areas of content can pass underneath them. They allow the user to work with two pages contexts simultaneously, and usually contain interactive filtering and sorting mechanisms that effect how the content in the other page context is visible.</em></p>
+      <p>A good <em>floating box</em> design</p>
+      <ul>
+        <li>makes it clear that the user can interact with content in both the box, and the content behind it</li>
+        <li>provides a subtle visual cue that the content underneath the box can be scrolled independently from the browser page</li>
+      </ul>
+      <h3><em>Floating box</em> design proposal</h3>
+      <p>The floating box should have a standard white background, so not to affect the colour-contrast of any component that might be placed inside it. Use a simple 5px wide, semi-opaque black bar overlaying the other areas of content to imply layering and depth, without veering too far into skeumorphism. There shouldn't be a shade over the other page content.</p>
+      <div id="floating-boxes-example" class="example">
+        <div id="floating-box">
+          <div id="floating-box-content">
+            Some content in a floating box
+          </div>
+        </div>
+        <div class="example-inner">
+          <table cellspacing="0">
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+          </table>
+        </div>
+      </div>
+      <style>
+        #floating-boxes-example #floating-box {
+          position: absolute;
+          top: 30.6px;
+          left: 0;
+          bottom: 0;
+          width: 33.333%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-family: "nta", sans-serif;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 20px;
+          z-index: 10;
+          background: white;
+          box-shadow: 5px 0 0 rgba(0,0,0,0.1);
+        }
+        #floating-boxes-example:before {
+          content: ".";
+          position: absolute;
+          top: 30.6px;
+          right: 0;
+          bottom: 0;
+          width: 5px;
+          background: rgba(0,0,0,0.1);
+          z-index: 10;
+        }
+        #floating-boxes-example #floating-box-content {
+          padding: 30px;
+        }
+        #floating-boxes-example .example-inner {
+          padding-left: 25%;
+        }
+        #floating-boxes-example td:first-child {
+          color: #005ea5;
+          text-decoration: underline;
+        }
+      </style>
+      <h3>Relevant styles</h3>
+      <pre>
+#floating-box {
+  background: white;
+  box-shadow: 5px 0 0 rgba(0,0,0,0.1);
+}
+      </pre>
+    </section>
+    
+    
+    <section id="modal-dialogue">
+      <h2>Modal dialogues</h2>
+      <p><em>Modal dialogues are used to interrupt the user from the task they are trying to complete. Due to a long history of being abused by advertisers they are often ignored by users, and should only be used as a last resort. On GOV.UK, they are primarily used to draw attention to things that have changed on the page while the user has been away from it, that might affect their ability to complete their task, eg; session timeouts.</em></p>
+      <p>A good <em>modal dialogue</em> design</p>
+      <ul>
+        <li>is visually prominent to draw the user attention</li>
+        <li>is strongly branded according to the site the user is visiting, so don't mistake it for an advert</li>
+        <li>is clearly related to the task the user is trying to complete, so they know it is relevent</li>
+        <li>has obvious ways to close it</li>
+      </ul>
+      <h3><em>Modal dialogue</em> design proposal</h3>
+      <p>The modal dialogue should be in GOV.UK blue, with a black branding area at the top. It should be centred in the screen, and shouldn't be much wider than an average mobile screen width (to stop us putting too much content in them). It should have a shade masking the rest of the page content, and a consistent shadow style to the fixed panel design.</p>
+      <div id="modal-dialogue-example" class="example">
+        <div id="modal">
+          <div id="modal-content">
+            <h2>Want more time to continue?</h2>
+            <p>Your application will be deleted in 10 minutes.</p> 
+            <p>For security reasons, any information will not be&nbsp;saved.</p>
+            <div class="actions">
+              <button>Continue application</button>
+              <a href="#modal-tooltip-example">Delete my details</a>
+            </div>
+            <a class="close-modal" href="#modal-tooltip-example">&times; <span>Close<span></a>
+          </div>
+        </div>
+        <div class="example-inner">
+        </div>
+      </div>
+      <style>
+        #modal-dialogue-example #modal {
+          position: absolute;
+          z-index: 10;
+          top: 30.6px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        #modal-dialogue-example #modal-content {
+          position: relative;
+          font-family: "nta", sans-serif;
+          background: #005ea5;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 20px;
+          color: white;
+          padding: 40px 15px 15px 15px;
+          box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+          max-width: 380px;
+          box-sizing: border-box;
+        }
+        #modal-dialogue-example #modal-content:before {
+          content: ".";
+          color: transparent;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 40px;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABACAMAAACOYMEYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQwIDc5LjE2MDQ1MSwgMjAxNy8wNS8wNi0wMTowODoyMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUUzODYxRjlBREY3MTFFOEE5NzBDMTI0NzFCNTgyMDIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUUzODYxRkFBREY3MTFFOEE5NzBDMTI0NzFCNTgyMDIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFRTM4NjFGN0FERjcxMUU4QTk3MEMxMjQ3MUI1ODIwMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFRTM4NjFGOEFERjcxMUU4QTk3MEMxMjQ3MUI1ODIwMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pjhg75MAAAAzUExURf///4CAgEBAQL+/vxAQEO/v72BgYCAgIM/Pz9/f35+fn6+vr1BQUI+PjzAwMHBwcP///3tSYSAAAAARdFJOU/////////////////////8AJa2ZYgAAA11JREFUeNrsV8mW4jAMlG15d5b//9qRvDuEgYa+zfjQjwRTKkmlpeH8pQP/MJCV+divgQzkY74GwgKE38dIMU78hWAfb3n2AmjnaDOQrQ+fAikd0ukA3JmCVt8AERkN9XwLBB8BkfzeA3qQ6AKEke77fQVS5JtWK9DuWRL4FChkyxonIC9P+pE/pZ+AsMQtPAOqIs6iwcw90MedXxFLE7LnOMpmkfsMJOv3gq6yzS2/3WD5qAlb1IvyAajYt52RnCqVw0G+DSKyM7KdYwVKunisWoxiuejO6ln2jZVZ6q7GSJWo6tSAbPMI+areR9qbZ8W3IYOdkRw2H20Fqo+a7R+Z6cTIl49+ZsSxOJij7kHNQJP9Neyme1by9hDiSaoXRktf3MZ3xep27SgXRnY8zrWSa2AB6m/bucSoqCb8rWU/a22hKmvV0W3Lruw1Ph0y+F6rTQUnvdFqkwO9PZ8SNigVno813DS4xECpS6ZScC9HD7pBsIgrEZBfg4keXiFRAXhck+EJCNbkm5dNNQvYrAIAfABSL8eYmftuAyJGbhU+LIM1qX56WOJcT7JVJZRKHnLsJTrHcsmGXwozt2fqGPTCbiqaJ9fuBHkxZaLabBckmm22UM3j4C7rYyPZPNgMjlaLJnKpm6w6O8UoyhZOTkWKU4zKXcMNIWYsaFUgznj0PJg9154CIo08jpACkDNl5W56jo9YzKRWa2zD2JJSK4m6L9/yeyVU/cM82SYvFaXGFVjT+GcgSxEVIc+pAFOaBCxH9MZbgkRzMNAVbUf1i0LCjPaTM5eBNDPQFWj6ulz2zU2Ykx46BycjZA3rg90x56Gz3iFK1/mFWQjQZa81dW0ByrgyjA2nnmeTyEZJtzK/5MHujIKDOrbWvZyg61Cj0XJXWYNVR5Jx2DCrZtey6YjVqazUhq76y+wXrCSUpy3DovXR6nYeMK0bl/FiT+qx2yh2mDaRVrfbMlHEZcKItlIU1eN1G4llWLfIi2U7Bjhm3OoOl3t8WGtSb/E1GUIiDeZR/Qc/Cz9WrLx6pMf9KEvFic3DG8dvwq3TGS573w9PuAEynwClGyD8BAjvdkj1cxx1u4wutc7tPojLoZmr3KUf3ABJ/rkQaV3+746USQil1p3r///9/4F+4fwRYADIqsVM2hEd2gAAAABJRU5ErkJggg==');
+          background-size: 30px 27px;
+          background-position: 12px 6px;
+          background-repeat: no-repeat;
+          background-color: black;
+        }
+        #modal-dialogue-example .close-modal {
+          position: absolute;
+          overflow: hidden;
+          width: 40px;
+          height: 30px;
+          padding: 9px 0 1px;
+          top: 0;
+          right: 0;
+          color: white;
+          border-left: 1px solid;
+          font-size: 30px;
+          text-decoration: none;
+          text-align: center;
+          line-height: 30px;
+        }
+        #modal-dialogue-example #modal-content h2 {
+          font-size: 24px;
+          line-height: 30px;
+          margin: 20px 0 15px;
+          font-weight: bold;
+        }
+        #modal-dialogue-example #modal-content p {
+          margin: 0;
+        }
+        #modal-dialogue-example #modal-content .actions {
+          margin-top: 15px;
+        }
+        #modal-dialogue-example #modal-content .actions button {
+          color: #005ea5;
+          background: white;
+          border: none;
+          font-family: inherit;
+          font-weight: bold;
+          line-height: 30px;
+          padding: 6px 10px 4px;
+          margin-right: 10px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        #modal-dialogue-example #modal-content .actions a {
+          color: white;
+          text-decoration: underline;
+        }
+        #modal-dialogue-example .close-modal:hover {
+          background: #4C2C92;
+        }
+        #modal-dialogue-example .close-modal:focus {
+          background: orange;
+          outline: none;
+        }
+        #modal-dialogue-example .close-modal span {
+          position: absolute;
+          top: -100px;
+          left: -1000%;
+        }
+        #modal-dialogue-example:target #modal-content {
+          display: none;
+        }
+      </style>
+    </section>
+    
+    
+    <section id="modal-tooltip">
+      <h2>Modal tooltip</h2>
+      <p><em>Modal tooltips are used to provide snippets additional information within an interface. Tooltips are not a core part of the part design, and so should only be used as hints. They should be avoided in situations where the majority of users will need to know the information contained within them. For this reason, their main use is for interfaces that are used frequently and repeatedly. They are very rarely applicable for the general public.</em></p>
+      <p>A good <em>modal tooltip</em> design</p>
+      <ul>
+        <li>is visually prominent to draw the user attention</li>
+        <li>is closely associated with the element that opened it</li>
+        <li>has an obvious way to close it</li>
+        <li>is activated and closed by affirmative click or touch actions, not by hovering</li>
+      </ul>
+      <h3><em>Modal tooltip</em> design proposal</h3>
+      <p>The modal tooltip should be black with white text, and ideally should only be a few words. It should be positioned below the element that opened the tooltip, and should have an arrow to make the association between elements clear. It should have a shade masking the rest of the page content, and a consistent shadow style to the fixed panel design.</p>
+      <div id="modal-tooltip-example" class="example">
+        <div id="modal">
+          <div id="modal-content">
+            Tooltip content in a modal <a class="close-modal" href="#modal-tooltip-example">&times; <span>Close<span></a>
+          </div>
+        </div>
+        <div class="example-inner">
+        </div>
+      </div>
+      <style>
+        #modal-tooltip-example #modal {
+          position: absolute;
+          z-index: 10;
+          top: 30.6px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        #modal-tooltip-example #modal-content {
+          position: relative;
+          font-family: "nta", sans-serif;
+          background: black;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 20px;
+          color: white;
+          padding: 11px 55px 9px 15px;
+          box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+        }
+        #modal-tooltip-example #modal-content:after {
+          content: ".";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: black;
+          color: transparent;
+          overflow: hidden;
+          top: -5px;
+          left: 50%;
+          margin-left: -6px;
+          transform: rotate(45deg);
+        }
+        #modal-tooltip-example .close-modal {
+          position: absolute;
+          overflow: hidden;
+          width: 40px;
+          height: 30px;
+          padding: 9px 0 1px;
+          top: 0;
+          right: 0;
+          color: white;
+          border-left: 1px solid;
+          font-size: 30px;
+          text-decoration: none;
+          text-align: center;
+          line-height: 30px;
+        }
+        #modal-tooltip-example .close-modal:hover {
+          background: #4C2C92;
+        }
+        #modal-tooltip-example .close-modal:focus {
+          background: orange;
+          outline: none;
+        }
+        #modal-tooltip-example .close-modal span {
+          position: absolute;
+          top: -100px;
+          left: -1000%;
+        }
+        #modal-tooltip-example:target #modal-content {
+          display: none;
+        }
+      </style>
+    </section>
+    
+    
+    <section id="shades">
+      <h2>Shades</h2>
+      <p><em>Shades are a layer between a modal box and the page content beneath. They are used to increase focus on the modal by obscuring the visibility of the rest of the page content.</em></p>
+      <p>A good <em>shade</em> design</p>
+      <ul>
+        <li>makes it obvious to the user that they can't interact with the background page contents</li>
+        <li>makes it obvious to the user that they haven't left the context of the page</li>
+        <li>provides a high contrast between the modal box and the background content, so that the user can see where they are meant to be looking</li>
+      </ul>
+      <h3><em>Shade</em> design proposal</h3>
+      <p>Full screen element behind the modal, with a semi-transparent white background to increase the contrast against the black modal element. Also utilise new CSS backdrop-filter styles to blur and reduce the contrast of the background.</p>
+      
+      <div id="shades-example" class="example">
+        <div id="modal">
+          <div id="modal-content">
+            Some content in a modal <a class="close-modal" href="#shades-example">&times; <span>Close<span></a>
+          </div>
+        </div>
+        <div class="example-inner">
+          <table cellspacing="0">
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+            <tr><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td><td>Some example content</td></tr>
+          </table>
+        </div>
+      </div>
+      <style>
+        #shades-example #modal {
+          position: absolute;
+          z-index: 10;
+          top: 30.6px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.7);
+          -webkit-backdrop-filter: blur(7px) contrast(90%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          -webkit-transition: background-colour 0.2s ease, -webkit-backdrop-filter 0.3s ease;
+        }
+        #shades-example #modal-content {
+          position: relative;
+          font-family: "nta", sans-serif;
+          background: black;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 20px;
+          color: white;
+          padding: 11px 55px 9px 15px;
+          box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+        }
+        #shades-example #modal-content:after {
+          content: ".";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: black;
+          color: transparent;
+          overflow: hidden;
+          top: -5px;
+          left: 50%;
+          margin-left: -6px;
+          transform: rotate(45deg);
+        }
+        #shades-example .close-modal {
+          position: absolute;
+          overflow: hidden;
+          width: 40px;
+          height: 30px;
+          padding: 9px 0 1px;
+          top: 0;
+          right: 0;
+          color: white;
+          border-left: 1px solid;
+          font-size: 30px;
+          text-decoration: none;
+          text-align: center;
+          line-height: 30px;
+        }
+        #shades-example .close-modal:hover {
+          background: #4C2C92;
+        }
+        #shades-example .close-modal:focus {
+          background: orange;
+          outline: none;
+        }
+        #shades-example .close-modal span {
+          position: absolute;
+          top: -100px;
+          left: -1000%;
+        }
+        #shades-example:target #modal {
+          background: rgba(255,255,255,0);
+          -webkit-backdrop-filter: blur(0) contrast(100%);
+        }
+        #shades-example:target #modal-content {
+          display: none;
+        }
+      </style>
+      <h3>Relevant styles</h3>
+      <pre>
+#modal-shade {
+  background: rgba(255,255,255,0.7);
+  -webkit-backdrop-filter: blur(7px) contrast(90%);
+  backdrop-filter: blur(6px) contrast(90%);
+}
+      </pre>
+    </section>
+    
+    
+  </body>
+</html>
